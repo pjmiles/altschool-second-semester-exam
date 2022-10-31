@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import { reducer } from "./Reducer";
 
-const initialState = 0;
+export const initialState = 0;
 
 const Counter = () => {
   const [state, dispatch] = useReducer(reducer, initialState);

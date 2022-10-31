@@ -1,3 +1,5 @@
+import { initialState } from "./Counter";
+
 export const reducer = (state, action) => {
   switch (action.type) {
     case "increment":
@@ -5,7 +7,7 @@ export const reducer = (state, action) => {
     case "decrement":
       return state - 1;
     case "clear":
-      return state === "";
+      return state === initialState;
     default:
       throw new Error();
   }
