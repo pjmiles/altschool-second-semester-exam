@@ -5,7 +5,7 @@ export const reducer = (state, action) => {
     case "decrement":
       return state - 1;
     case "clear":
-      return (state = "");
+      return state === "";
     default:
       throw new Error();
   }

@@ -1,15 +1,11 @@
-
+import Counter from './components/Counter';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Counter App</h1>
-      <button>+</button>
-      <button>-</button>
-      <button>C</button>
-      <button>set</button>
-    </div>
+    <main className="App">
+     <Counter />
+    </main>
   );
 }
 
