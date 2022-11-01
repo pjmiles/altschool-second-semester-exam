@@ -18,13 +18,25 @@ const Counter = () => {
     dispatch({ type: "clear" });
   };
   return (
-    <div>
-      <h1>Counter App</h1>
-      <h2>{state}</h2>
-      <button onClick={handleIncrease}>+</button>
-      <button onClick={handleDecrease}>-</button>
-      <button onClick={handleClear}>C</button>
-      <button>set</button>
+    <div className="counter-container">
+      <div className="heading">
+        <h1>Counter App</h1>
+      </div>
+      <div className="result">
+        <h2>{state}</h2>
+      </div>
+      <div className="buttons-container">
+        <button className="bttns" onClick={handleIncrease}>
+          +
+        </button>
+        <button className="bttns" onClick={handleDecrease}>
+          -
+        </button>
+        <button className="bttns" onClick={handleClear}>
+          C
+        </button>
+        <button className="bttns">set</button>
+      </div>
     </div>
   );
 };
