@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { reducer } from "./Reducer";
+import { reducer } from "../hook/Reducer";
 
 export const initialState = 0;
 
@@ -15,7 +15,7 @@ const Counter = () => {
   };
 
   const handleClear = (e) => {
-    dispatch({ type: "clear"})
+    dispatch({ type: "clear" });
   };
   return (
     <div>
