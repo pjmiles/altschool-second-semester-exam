@@ -6,6 +6,7 @@ export const initialState = 0;
 const Counter = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [openInputModal, setOpenInputModal] = useState(false);
+  const [value, setValue] = useState("");
 
   const handleIncrease = () => {
     dispatch({ type: "increment" });
@@ -25,8 +26,13 @@ const Counter = () => {
 
   const handleSetValue = () => {
     setOpenInputModal(true);
-    console.log("hello input");
+    setValue(value);
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    dispatch({ type: "increment"})
+  }
 
   return (
     <div className="counter-container">
@@ -38,9 +44,9 @@ const Counter = () => {
       </div>
       <div>
         {openInputModal && (
-          <form>
-            <input placeholder="set value" type="number" />
-            <button disabled>set</button>
+          <form onSubmit={handleSubmit}>
+            <input placeholder="set value" type="number" onChange={handleInputValue} />
+            <button>set</button>
           </form>
         )}
       </div>
