@@ -60,3 +60,7 @@ main {
     color: white;
     background-color: var(--btn-color);
 }
+
+footer p {
+    margin-top: 50px;
+}
