@@ -1,5 +1,6 @@
 import { useReducer, useState } from "react";
 import { reducer } from "../hook/Reducer";
+import Footer from "./Footer";
 
 export const initialState = 0;
 
@@ -64,6 +65,7 @@ const Counter = () => {
           set
         </button>
       </div>
+      <Footer />
     </div>
   );
 };
