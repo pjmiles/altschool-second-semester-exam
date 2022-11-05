@@ -32,7 +32,8 @@ const Counter = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    dispatch({ type: "increment"})
+    dispatch({ type: "set", payload: state.value})
+    setOpenInputModal(false)
   }
 
   return (
