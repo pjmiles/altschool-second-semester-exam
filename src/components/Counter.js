@@ -1,5 +1,6 @@
 import { useReducer, useState } from "react";
 import { reducer } from "../hook/Reducer";
+import Footer from "./Footer";
 
 export const initialState = 0;
 
@@ -31,7 +32,8 @@ const Counter = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    dispatch({ type: "increment"})
+    dispatch({ type: "set", payload: state.value})
+    setOpenInputModal(false)
   }
 
   return (
@@ -64,6 +66,7 @@ const Counter = () => {
           set
         </button>
       </div>
+      <Footer />
     </div>
   );
 };

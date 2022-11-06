@@ -1,4 +1,4 @@
-import { initialState } from "../components/Counter";
+// import { initialState } from "../components/Counter";
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -7,10 +7,11 @@ export const reducer = (state, action) => {
     case "decrement":
       return state - 1;
     case "clear":
-      return initialState;
-    case "setValue":
-      return initialState;
+      return state = 0;
+    case "set":
+      return { ...state, state: action.payload };
     default:
-      throw new Error();
+      // throw new Error();
+      state
   }
 };
