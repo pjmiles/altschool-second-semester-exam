@@ -3,15 +3,15 @@
 export const reducer = (state, action) => {
   switch (action.type) {
     case "increment":
-      return state + 1;
+      return { ...state, count: state.count + 1 };
     case "decrement":
-      return state - 1;
+      return { ...state, count: state.count - 1 };
     case "clear":
-      return state = 0;
+      return { ...state, count: (state.count = 0) };
     case "set":
-      return { ...state, state: action.payload };
+      return { ...state, count: action.payload };
     default:
-      // throw new Error();
-      state
+      throw new Error();
+      // state;
   }
 };

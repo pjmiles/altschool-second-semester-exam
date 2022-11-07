@@ -2,12 +2,9 @@ import { useReducer, useState } from "react";
 import { reducer } from "../hook/Reducer";
 import Footer from "./Footer";
 
-export const initialState = 0;
-
 const Counter = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, { count: 0, userInput: "" });
   const [openInputModal, setOpenInputModal] = useState(false);
-  const [value, setValue] = useState(0);
 
   const handleIncrease = () => {
     dispatch({ type: "increment" });
@@ -32,9 +29,9 @@ const Counter = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch({ type: "set", payload: state = value }); //payload should be state.value
+    dispatch({ type: "set", payload: (state = value) }); //payload should be state.value
     //this is not perfect, value state needs to be inside the reducer instead of handling the value seperately
-    //this function will be modified 
+    //this function will be modified
   };
 
   return (
@@ -43,7 +40,7 @@ const Counter = () => {
         <h1>Counter</h1>
       </div>
       <div className="result">
-        <h2>{state}</h2>
+        <h2>{state.count}</h2>
       </div>
       <div>
         {openInputModal && (
@@ -51,6 +48,8 @@ const Counter = () => {
             <input
               placeholder="set value"
               type="number"
+              id="num"
+              value="0"
               onChange={handleInputValue}
             />
             <button onClick={handleSetValue}>set</button>
