@@ -18,20 +18,13 @@ const Counter = () => {
     dispatch({ type: "clear" });
   };
 
-  const handleInputValue = () => {
-    dispatch({ type: "setValue" });
-  };
-
-  const handleSetValue = () => {
+  const handleSetValue = (e) => {
     setOpenInputModal(true);
-    // setValue(value);
+    dispatch({ type: "set", payload: e.target.value }); //needs to make more value
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch({ type: "set", payload: (state = value) }); //payload should be state.value
-    //this is not perfect, value state needs to be inside the reducer instead of handling the value seperately
-    //this function will be modified
+  const handleSubmit = () => {
+    setOpenInputModal(true);
   };
 
   return (
@@ -41,6 +34,7 @@ const Counter = () => {
       </div>
       <div className="result">
         <h2>{state.count}</h2>
+        <h3>{state.userInput}</h3>
       </div>
       <div>
         {openInputModal && (
@@ -48,11 +42,10 @@ const Counter = () => {
             <input
               placeholder="set value"
               type="number"
-              id="num"
-              value="0"
-              onChange={handleInputValue}
+              value={state.userInput}
+              onChange={handleSetValue}
             />
-            <button onClick={handleSetValue}>set</button>
+            <button>ok</button>
           </form>
         )}
       </div>

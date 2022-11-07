@@ -9,7 +9,7 @@ export const reducer = (state, action) => {
     case "clear":
       return { ...state, count: (state.count = 0) };
     case "set":
-      return { ...state, count: action.payload };
+      return { ...state, userInput: action.payload };
     default:
       throw new Error();
       // state;
