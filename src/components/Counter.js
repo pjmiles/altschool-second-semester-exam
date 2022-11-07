@@ -2,12 +2,9 @@ import { useReducer, useState } from "react";
 import { reducer } from "../hook/Reducer";
 import Footer from "./Footer";
 
-export const initialState = 0;
-
 const Counter = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, { count: 0, userInput: "" });
   const [openInputModal, setOpenInputModal] = useState(false);
-  const [value, setValue] = useState("");
 
   const handleIncrease = () => {
     dispatch({ type: "increment" });
@@ -21,34 +18,34 @@ const Counter = () => {
     dispatch({ type: "clear" });
   };
 
-  const handleInputValue = () => {
-    dispatch({ type: "setValue" });
-  };
-
-  const handleSetValue = () => {
+  const handleSetValue = (e) => {
     setOpenInputModal(true);
-    setValue(value);
+    dispatch({ type: "set", payload: e.target.value }); //needs to make more value
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    dispatch({ type: "set", payload: state.value})
-    setOpenInputModal(false)
-  }
+  const handleSubmit = () => {
+    setOpenInputModal(true);
+  };
 
   return (
     <div className="counter-container">
       <div className="heading">
-        <h1>Counter App</h1>
+        <h1>Counter</h1>
       </div>
       <div className="result">
-        <h2>{state}</h2>
+        <h2>{state.count}</h2>
+        <h3>{state.userInput}</h3>
       </div>
       <div>
         {openInputModal && (
           <form onSubmit={handleSubmit}>
-            <input placeholder="set value" type="number" onChange={handleInputValue} />
-            <button>set</button>
+            <input
+              placeholder="set value"
+              type="number"
+              value={state.userInput}
+              onChange={handleSetValue}
+            />
+            <button>ok</button>
           </form>
         )}
       </div>
