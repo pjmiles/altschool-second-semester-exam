@@ -64,7 +64,21 @@ main {
 
 input {
     width: 80%;
+    padding: 5px;
 }
+
+.ok-btn {
+    height: 30px;
+    width: 80%;
+    background: var(--btn-color);
+    border: none;
+    color: white;
+}
+
+.ok-btn:hover {
+    background: var(--green);
+}
+
 
 footer p {
     margin-top: 50px;

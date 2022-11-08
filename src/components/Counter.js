@@ -45,7 +45,7 @@ const Counter = () => {
               value={state.userInput}
               onChange={handleSetValue}
             />
-            <button>ok</button>
+            <button className="ok-btn">ok</button>
           </form>
         )}
       </div>
