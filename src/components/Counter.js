@@ -36,7 +36,7 @@ const Counter = () => {
         <h2>{state.count}</h2>
         <h3>{state.userInput}</h3>
       </div>
-      <div>
+      <div className="user-input-container">
         {openInputModal && (
           <form onSubmit={handleSubmit}>
             <input
@@ -45,7 +45,7 @@ const Counter = () => {
               value={state.userInput}
               onChange={handleSetValue}
             />
-            <button>ok</button>
+            <button className="ok-btn">ok</button>
           </form>
         )}
       </div>
