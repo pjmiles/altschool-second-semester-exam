@@ -15,7 +15,7 @@ const Counter = () => {
   };
 
   const handleClear = (e) => {
-    dispatch({ type: "clear" });
+    dispatch({ type: "clear", payload: "" });
   };
 
   const handleSetValue = (e) => {
