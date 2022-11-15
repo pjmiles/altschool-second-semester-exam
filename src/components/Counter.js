@@ -15,12 +15,15 @@ const Counter = () => {
   };
 
   const handleClear = (e) => {
-    dispatch({ type: "clear" });
+    dispatch({ type: "clear", payload: "" });
   };
 
   const handleSetValue = (e) => {
     setOpenInputModal(true);
-    dispatch({ type: "set", payload: e.target.value }); //needs to make more value
+    let maxLen = String(e.target.value);
+    if (maxLen.length < 5) {
+      dispatch({ type: "set", payload: maxLen }); // max input length set to 4 digits
+    }
   };
 
   const handleSubmit = () => {

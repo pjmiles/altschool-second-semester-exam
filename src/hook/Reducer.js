@@ -7,11 +7,11 @@ export const reducer = (state, action) => {
     case "decrement":
       return { ...state, count: state.count - 1 };
     case "clear":
-      return { ...state, count: (state.count = 0) };
+      return { ...state, count: (state.count = 0), userInput: action.payload };
     case "set":
       return { ...state, userInput: action.payload };
     default:
       throw new Error();
-      // state;
+    // state;
   }
 };
