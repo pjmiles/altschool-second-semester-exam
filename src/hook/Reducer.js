@@ -1,4 +1,3 @@
-// import { initialState } from "../components/Counter";
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -20,6 +19,5 @@ export const reducer = (state, action) => {
       };
     default:
       throw new Error();
-    // state;
   }
 };

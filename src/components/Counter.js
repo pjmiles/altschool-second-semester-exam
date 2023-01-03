@@ -37,7 +37,6 @@ const Counter = () => {
       </div>
       <div className="result">
         <h2>{state.count}</h2>
-        {/* <h3>{state.userInput}</h3> */}
       </div>
       <div className="user-input-container">
         {openInputModal && (
