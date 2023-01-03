@@ -27,7 +27,7 @@ const Counter = () => {
   };
 
   const handleSubmit = () => {
-    setOpenInputModal(true);
+    setOpenInputModal(false);
   };
 
   return (
@@ -37,19 +37,20 @@ const Counter = () => {
       </div>
       <div className="result">
         <h2>{state.count}</h2>
-        <h3>{state.userInput}</h3>
       </div>
       <div className="user-input-container">
         {openInputModal && (
-          <form onSubmit={handleSubmit}>
+          <div>
             <input
               placeholder="set value"
               type="number"
               value={state.userInput}
               onChange={handleSetValue}
             />
-            <button className="ok-btn">ok</button>
-          </form>
+            <button className="ok-btn" onClick={handleSubmit}>
+              ok
+            </button>
+          </div>
         )}
       </div>
       <div className="buttons-container">
